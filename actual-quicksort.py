@@ -1,15 +1,15 @@
-case_1 = [5,4,3,8,9,1,6,7,2]
-def Quicksort(array):
-    if len(array)<=1:
-        return array
-    pivot = array[len(array)//2]
+def quicksort(arr):
+    if len(arr)<=1:
+        return arr
+    pivot = arr[len(arr)//2]
     left = []
+    middle = []
     right = []
-    for i in array:
+    for i in arr:
         if i<pivot:
             left.append(i)
-        else:
+        elif i>pivot:
             right.append(i)
-    left.append(pivot)
-    return Quicksort(left)+Quicksort(right)
-print(Quicksort(case_1))
+        else:
+            middle.append(i)
+    return quicksort(left)+middle+quicksort(right)
